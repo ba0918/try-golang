@@ -5,14 +5,21 @@ import (
 )
 
 func main() {
-	for i := 1; i < 100; i++ {
-		if i%3 == 0 && i%5 == 0 {
-			fmt.Printf("fizzbuzz\n")
-		} else if i%3 == 0 {
-			fmt.Printf("fizz\n")
-		} else if i%5 == 0 {
-			fmt.Printf("buzz\n")
-		} else {
+	fizzbuzz(1, 100)
+}
+
+func fizzbuzz(start int, end int) {
+	for i := start; i < end; i++ {
+		a := i%3 == 0
+		b := i%5 == 0
+		switch {
+		case a && b:
+			fmt.Println("fizzbuzz")
+		case a:
+			fmt.Println("fizz")
+		case b:
+			fmt.Println("buzz")
+		default:
 			fmt.Printf("%d\n", i)
 		}
 	}

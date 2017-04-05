@@ -1,16 +1,21 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"strconv"
 )
 
 func main() {
-	fizzbuzzRange(1, 100)
+	var start, end int
+	flag.IntVar(&start, "s", 1, "start value")
+	flag.IntVar(&end, "e", 1, "end value")
+	flag.Parse()
+	fizzbuzzRange(start, end)
 }
 
 func fizzbuzzRange(start int, end int) {
-	for i := start; i < end; i++ {
+	for i := start; i <= end; i++ {
 		fmt.Println(fizzbuzz(i))
 	}
 }
